@@ -1,36 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็ปสําหรับเก็บผลงาน</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ภัทรพันธ์ พรหมสาธร — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>เว็บไซต์แบ่งปันข้อมูล</h1>
-  <p1>เกี่ยวกับผม</p1>
-  <p2>ผมชื่อ ภัทรพันธ์ พรหมสาธร</p2>
-<section id="projects">
-    <p1>ผลงานของฉัน</p1>
-    <div class="project">
-        <p3>เว็ปไซต์> Portfolio</p3>
-        <p4>ผลงานของผม</p4>
-    </div>
-    <div class="performance">
-        <p5>ยังไม่มี</p5>
-    </div>
-    <section id=""skills">
-        <p6>ความสามารถพิเศษ</p6>
-        <ul>
-            <il>กินข้าวเยอะ</il>
 
-        </ul>
-    </section>
-    <footer>
-        <p>ช่องทางติดต่อ</p>
-        <p>เบอร์ 0650513599</p>
-    </footer>
+  <div class="cursor" id="cursor"></div>
 
+  <nav>
+    <div class="logo">PP</div>
+    <ul class="nav-links">
+      <li><a href="#about">เกี่ยวกับ</a></li>
+      <li><a href="#projects">ผลงาน</a></li>
+      <li><a href="#skills">ทักษะ</a></li>
+      <li><a href="#contact">ติดต่อ</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-tag">Portfolio — 2025</p>
+      <h1>ภัทรพันธ์<br><span>พรหมสาธร</span></h1>
+      <p class="hero-sub">นักพัฒนาเว็บไซต์ผู้มีความหลงใหลในการสร้างประสบการณ์ดิจิทัลที่สวยงามและใช้งานง่าย</p>
+      <button class="hero-btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">ดูผลงาน</button>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="reveal">
+      <p class="section-label">เกี่ยวกับผม</p>
+      <div class="divider"></div>
+      <h2>สวัสดีครับ</h2>
+      <p>ผมชื่อ <strong style="color:#f0ebe0">ภัทรพันธ์ พรหมสาธร</strong> สนใจด้านการพัฒนาเว็บไซต์และการออกแบบ UI/UX ยินดีที่จะเรียนรู้และพัฒนาทักษะใหม่ ๆ อยู่เสมอครับ</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="reveal">
+      <p class="section-label">ผลงานของฉัน</p>
+      <div class="divider"></div>
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <p class="project-num">01 — WEB</p>
+          <p class="project-title">Portfolio Website</p>
+          <p class="project-desc">เว็บไซต์แสดงผลงานส่วนตัว ออกแบบและพัฒนาด้วย HTML, CSS และ JavaScript</p>
+        </div>
+        <div class="project-empty">🚀 กำลังมาเร็ว ๆ นี้...</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="reveal">
+      <p class="section-label">ความสามารถ</p>
+      <div class="divider"></div>
+      <h2>ทักษะพิเศษ</h2>
+      <div class="skills-list">
+        <div class="skill-tag">HTML / CSS</div>
+        <div class="skill-tag">JavaScript</div>
+        <div class="skill-tag">UI Design</div>
+        <div class="skill-tag">กินข้าวเยอะ 🍚</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="reveal">
+      <p class="footer-label">ช่องทางติดต่อ</p>
+      <p class="footer-title">มาคุยกันเถอะ</p>
+      <div class="contact-row">
+        <div class="contact-item">
+          <span>โทรศัพท์</span>
+          <span>065-051-3599</span>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 ภัทรพันธ์ พรหมสาธร — All rights reserved</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-</html> 
+</html>
