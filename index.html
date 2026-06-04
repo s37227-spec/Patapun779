@@ -1,287 +1,36 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ภัทรพันธ์ พรหมสาธร — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Sarabun', sans-serif;
-      background: #0d0d0d;
-      color: #f0ebe0;
-      overflow-x: hidden;
-    }
-    .cursor {
-      width: 10px; height: 10px;
-      background: #d4a84b;
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.15s ease;
-    }
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(13,13,13,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(212,168,75,0.15);
-      z-index: 100;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: #d4a84b;
-      letter-spacing: 2px;
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: #a09880;
-      text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover { color: #d4a84b; }
-    section { padding: 5rem 3rem; max-width: 960px; margin: 0 auto; }
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding-top: 6rem;
-      max-width: 100%;
-      padding-left: 3rem; padding-right: 3rem;
-    }
-    .hero-inner { max-width: 960px; margin: 0 auto; }
-    .hero-tag {
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #d4a84b;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 1.05;
-      color: #f0ebe0;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.4s forwards;
-    }
-    .hero h1 span { color: #d4a84b; }
-    .hero-sub {
-      margin-top: 1.5rem;
-      font-size: 1.05rem;
-      color: #a09880;
-      max-width: 480px;
-      line-height: 1.8;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.6s forwards;
-    }
-    .hero-btn {
-      display: inline-block;
-      margin-top: 2.5rem;
-      padding: 0.9rem 2.4rem;
-      border: 1px solid #d4a84b;
-      color: #d4a84b;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      background: transparent;
-      transition: background 0.3s, color 0.3s;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.8s forwards;
-    }
-    .hero-btn:hover { background: #d4a84b; color: #0d0d0d; }
-    .divider { width: 60px; height: 1px; background: #d4a84b; margin-bottom: 2rem; }
-    #about { border-top: 1px solid rgba(255,255,255,0.06); }
-    .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #d4a84b;
-      margin-bottom: 1rem;
-    }
-    #about h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: #f0ebe0;
-      margin-bottom: 1.5rem;
-    }
-    #about p { color: #a09880; line-height: 2; font-size: 1rem; max-width: 600px; }
-    #projects { border-top: 1px solid rgba(255,255,255,0.06); }
-    #projects h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: #f0ebe0;
-      margin-bottom: 2.5rem;
-    }
-    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .project-card {
-      background: #161616;
-      border: 1px solid rgba(212,168,75,0.15);
-      padding: 2rem;
-      border-radius: 4px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-      cursor: pointer;
-    }
-    .project-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 3px; height: 0;
-      background: #d4a84b;
-      transition: height 0.4s ease;
-    }
-    .project-card:hover::before { height: 100%; }
-    .project-card:hover { border-color: rgba(212,168,75,0.4); transform: translateY(-4px); }
-    .project-num { font-size: 0.7rem; color: #d4a84b; letter-spacing: 3px; margin-bottom: 1rem; }
-    .project-title { font-size: 1.15rem; font-weight: 600; color: #f0ebe0; margin-bottom: 0.5rem; }
-    .project-desc { font-size: 0.9rem; color: #a09880; line-height: 1.7; }
-    .project-empty {
-      background: #0f0f0f;
-      border: 1px dashed rgba(212,168,75,0.2);
-      padding: 2rem;
-      border-radius: 4px;
-      color: #555;
-      font-size: 0.9rem;
-      display: flex; align-items: center; justify-content: center;
-      min-height: 140px;
-    }
-    #skills { border-top: 1px solid rgba(255,255,255,0.06); }
-    #skills h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: #f0ebe0;
-      margin-bottom: 2rem;
-    }
-    .skills-list { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .skill-tag {
-      padding: 0.6rem 1.4rem;
-      border: 1px solid rgba(212,168,75,0.3);
-      color: #d4a84b;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      border-radius: 2px;
-      transition: background 0.3s;
-    }
-    .skill-tag:hover { background: rgba(212,168,75,0.08); }
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 4rem 3rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .footer-label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #d4a84b; margin-bottom: 1rem; }
-    .footer-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: #f0ebe0;
-      margin-bottom: 2rem;
-    }
-    .contact-row { display: flex; flex-wrap: wrap; gap: 2rem; }
-    .contact-item { display: flex; flex-direction: column; gap: 0.3rem; }
-    .contact-item span:first-child { font-size: 0.75rem; color: #555; letter-spacing: 2px; text-transform: uppercase; }
-    .contact-item span:last-child { color: #a09880; font-size: 1rem; }
-    .footer-bottom {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.75rem;
-      color: #444;
-      letter-spacing: 1px;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เว็ปสําหรับเก็บผลงาน</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-
-  <div class="cursor" id="cursor"></div>
-
-  <nav>
-    <div class="logo">PP</div>
-    <ul class="nav-links">
-      <li><a href="#about">เกี่ยวกับ</a></li>
-      <li><a href="#projects">ผลงาน</a></li>
-      <li><a href="#skills">ทักษะ</a></li>
-      <li><a href="#contact">ติดต่อ</a></li>
-    </ul>
-  </nav>
-
-  <div class="hero">
-    <div class="hero-inner">
-      <p class="hero-tag">Portfolio — 2025</p>
-      <h1>ภัทรพันธ์<br><span>พรหมสาธร</span></h1>
-      <p class="hero-sub">นักพัฒนาเว็บไซต์ผู้มีความหลงใหลในการสร้างประสบการณ์ดิจิทัลที่สวยงามและใช้งานง่าย</p>
-      <button class="hero-btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">ดูผลงาน</button>
+  <h1>เว็บไซต์แบ่งปันข้อมูล</h1>
+  <p1>เกี่ยวกับผม</p1>
+  <p2>ผมชื่อ ภัทรพันธ์ พรหมสาธร</p2>
+<section id="projects">
+    <p1>ผลงานของฉัน</p1>
+    <div class="project">
+        <p3>เว็ปไซต์> Portfolio</p3>
+        <p4>ผลงานของผม</p4>
     </div>
-  </div>
-
-  <section id="about">
-    <div class="reveal">
-      <p class="section-label">เกี่ยวกับผม</p>
-      <div class="divider"></div>
-      <h2>สวัสดีครับ</h2>
-      <p>ผมชื่อ <strong style="color:#f0ebe0">ภัทรพันธ์ พรหมสาธร</strong> สนใจด้านการพัฒนาเว็บไซต์และการออกแบบ UI/UX ยินดีที่จะเรียนรู้และพัฒนาทักษะใหม่ ๆ อยู่เสมอครับ</p>
+    <div class="performance">
+        <p5>ยังไม่มี</p5>
     </div>
-  </section>
+    <section id=""skills">
+        <p6>ความสามารถพิเศษ</p6>
+        <ul>
+            <il>กินข้าวเยอะ</il>
 
-  <section id="projects">
-    <div class="reveal">
-      <p class="section-label">ผลงานของฉัน</p>
-      <div class="divider"></div>
-      <h2>Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <p class="project-num">01 — WEB</p>
-          <p class="project-title">Portfolio Website</p>
-          <p class="project-desc">เว็บไซต์แสดงผลงานส่วนตัว ออกแบบและพัฒนาด้วย HTML, CSS และ JavaScript</p>
-        </div>
-        <div class="project-empty">🚀 กำลังมาเร็ว ๆ นี้...</div>
-      </div>
-    </div>
-  </section>
+        </ul>
+    </section>
+    <footer>
+        <p>ช่องทางติดต่อ</p>
+        <p>เบอร์ 0650513599</p>
+    </footer>
 
-  <section id="skills">
-    <div class="reveal">
-      <p class="section-label">ความสามารถ</p>
-      <div class="divider"></div>
-      <h2>ทักษะพิเศษ</h2>
-      <div class="skills-list">
-        <div class="skill-tag">HTML / CSS</div>
-        <div class="skill-tag">JavaScript</div>
-        <div class="skill-tag">UI Design</div>
-        <div class="skill-tag">กินข้าวเยอะ 🍚</div>
-      </div>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <div class="reveal">
-      <p class="footer-label">ช่องทางติดต่อ</p>
-      <p class="footer-title">มาคุยกันเถอะ</p>
-      <div class="contact-row">
-        <div class="contact-item">
-          <span>โทรศัพท์</span>
-          <span>065-051-3599</span>
-        </div>
-      </div>
-      <div class="footer-bottom">© 2025 ภัทรพันธ์ พรหมสาธร — All rights reserved</div>
-    </div>
-  </footer>
+</body>
+</html> 
