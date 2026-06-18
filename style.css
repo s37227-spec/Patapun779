@@ -11,8 +11,29 @@ body {
   background: #0d0d0d;
   color: #f0ebe0;
   overflow-x: hidden;
+  position: relative;
 }
  
+/* 3D Background */
+#bg-3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#bg-3d canvas {
+  display: block;
+}
+
+nav, .hero, section, footer {
+  position: relative;
+  z-index: 1;
+}
+
 /* Custom Cursor */
 .cursor {
   width: 10px;
