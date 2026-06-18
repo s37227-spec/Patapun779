@@ -25,7 +25,28 @@
   <div class="hero">
     <div class="hero-inner">
       <p class="hero-tag">Portfolio — 2025</p>
-      <h1>ภัทรพันธ์<br><span>พรหมสาธร</span></h1>
+
+      <div class="cat-stage" id="catStage">
+        <div class="cat" id="cat">
+          <div class="cat-ear cat-ear-left"></div>
+          <div class="cat-ear cat-ear-right"></div>
+          <div class="cat-head">
+            <div class="cat-eye cat-eye-left"></div>
+            <div class="cat-eye cat-eye-right"></div>
+            <div class="cat-nose"></div>
+            <div class="cat-mouth"></div>
+            <div class="cat-whisker cat-whisker-l1"></div>
+            <div class="cat-whisker cat-whisker-l2"></div>
+            <div class="cat-whisker cat-whisker-r1"></div>
+            <div class="cat-whisker cat-whisker-r2"></div>
+          </div>
+          <div class="cat-body"></div>
+          <div class="cat-tail"></div>
+        </div>
+      </div>
+
+      <h1 class="hero-name">ภัทรพันธ์ <span>พรหมสาธร</span></h1>
+
       <p class="hero-sub">นักพัฒนาเว็บไซต์ผู้มีความหลงใหลในการสร้างประสบการณ์ดิจิทัลที่สวยงามและใช้งานง่าย</p>
       <button class="hero-btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">ดูผลงาน</button>
     </div>
@@ -86,6 +107,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.128.0/three.min.js"></script>
   <script src="3d-bg.js"></script>
+  <script src="cat-cursor.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
