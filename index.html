@@ -8,16 +8,12 @@
 </head>
 <body>
 
-  <!-- แถบแสดงความคืบหน้าการเลื่อนหน้า -->
   <div class="progress-bar" id="progressBar"></div>
 
-  <!-- ฝุ่นทองลอยพื้นหลัง -->
   <canvas id="particles-canvas"></canvas>
 
-  <!-- เส้นสีรุ้งตามเมาส์ -->
   <canvas id="trail-canvas"></canvas>
 
-  <!-- cursor ทองแบบ custom -->
   <div class="cursor" id="cursor"></div>
 
   <nav>
@@ -30,17 +26,39 @@
     </ul>
   </nav>
 
-  <div class="hero">
-    <div class="hero-inner">
-      <p class="hero-tag">Portfolio — 2025</p>
-      <h1 class="hero-name">ภัทรพันธ์ <span>พรหมสาธร</span></h1>
-      <p class="hero-sub">นักพัฒนาเว็บไซต์ผู้มีความหลงใหลในการสร้างประสบการณ์ดิจิทัลที่สวยงามและใช้งานง่าย</p>
-      <button class="hero-btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">ดูผลงาน</button>
-      <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-        <span></span>
+  <section id="hero-book-section">
+    <div class="book-sticky-wrapper">
+      <div class="book-stage">
+        <div class="book-3d">
+          
+          <div class="book-cover back"></div>
+          
+          <div class="book-page page-3"></div>
+          <div class="book-page page-2"></div>
+          
+          <div class="book-page page-main">
+            <div class="inner-laser-glow"></div>
+            <div class="page-particles"></div> 
+            
+            <div class="inner-content">
+              <p class="hero-tag">Portfolio — 2026</p>
+              <h1 class="hero-name">ภัทรพันธ์ <br><span>พรหมสาธร</span></h1>
+              <p class="hero-sub">นักพัฒนาเว็บไซต์ผู้มีความหลงใหลในการสร้างประสบการณ์ดิจิทัลที่สวยงามและใช้งานง่าย</p>
+              <button class="hero-btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">ดูผลงาน</button>
+            </div>
+          </div>
+
+          <div class="book-cover front">
+            <div class="cover-emboss-border">
+              <div class="cover-title">PORTFOLIO</div>
+              <div class="cover-subtitle">BY PATTARAPAN</div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <section id="about">
     <div class="reveal">
@@ -58,7 +76,6 @@
       <h2>Projects</h2>
     </div>
 
-    <!-- 3D Carousel -->
     <div class="scene reveal">
       <div id="track"></div>
     </div>
@@ -100,7 +117,6 @@
         </div>
       </div>
 
-      <!-- ช่องทาง social media — แก้ href="#" เป็นลิงก์จริงของคุณ -->
       <div class="social-row">
         <a href="https://www.instagram.com/pratta_pxun/" class="social-item" aria-label="Instagram" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -128,11 +144,10 @@
         </a>
       </div>
 
-      <div class="footer-bottom">© 2025 ภัทรพันธ์ พรหมสาธร — All rights reserved</div>
+      <div class="footer-bottom">© 2026 ภัทรพันธ์ พรหมสาธร — All rights reserved</div>
     </div>
   </footer>
 
-  <!-- ปุ่มกลับขึ้นบน -->
   <button class="back-to-top" id="backToTop" aria-label="กลับขึ้นบน">↑</button>
 
   <script src="carousel.js"></script>
