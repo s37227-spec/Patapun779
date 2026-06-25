@@ -897,3 +897,9 @@ footer {
 .inner-content .hero-btn {
   pointer-events: auto; 
 }
+
+/* เลือกแท็ก img ที่อยู่ใน class picture-perforrmance */
+.picture-perforrmance img {
+    width: 200px; /* ปรับตัวเลขความกว้างตามใจชอบ */
+    height: auto;  /* ให้ความสูงปรับออโต้ตามสัดส่วน รูปจะได้ไม่เบี้ยว */
+}
